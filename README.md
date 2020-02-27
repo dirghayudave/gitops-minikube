@@ -29,4 +29,23 @@ In this test case we will be using flux which will pull the latest configuration
 
 ### Generate the identity of 
 	fluxctl identity --k8s-fwd-ns flux
-	Configure this in github auth key 
+Note: Configure this in github auth key 
+
+### Sync flux config and apply
+	fluxctl sync
+
+### Check k8s namespaces you can see namespace created by flux for the application deployment.
+	kubectl get namespaces
+
+	kubectl get pods --all-namespaces
+
+### Check the list of workload deployed by flux and it's images.
+	fluxctl -n [Namespace] list-workloads
+
+	fluxctl -n [Namespace] list-images
+
+### To automate the workload to fetch deployment.
+	fluxctl automate --workload=[namespace]:deployment/hello
+
+### Release the workload 
+	fluxctl release --workload=[namespace]:deployment/hello --update-image=linuxacademycontent/gitops:hellov1.2
