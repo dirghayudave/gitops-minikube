@@ -29,7 +29,7 @@ In this test case we will be using flux which will pull the latest configuration
 
 ### Generate the identity of 
 	fluxctl identity --k8s-fwd-ns flux
-Note: Configure this in github auth key 
+Note: Save the identity key into your repo: Settings --> Deploy keys --> Add Deploy key --> Add key.
 
 ### Sync flux config and apply
 	fluxctl sync
